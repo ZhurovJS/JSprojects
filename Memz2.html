@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <button id="crash" onclick="conclusion()">Большой расчет</button><br/>
+    <script>
+
+ let funcColculat=(n)=> (((Math.sqrt(n**3))*(n**n))*100/100);
+// console.log()
+
+
+ let memz=(fn)=>{
+ 	let cache={};
+
+ 	return (...args) =>{
+
+ let n=args[0];
+ 	if (n in cache){
+ 	 	 console.log('Берем результат из кеша');
+ 	 	 return cache[n];
+ }
+    else {
+  	console.log('Высчитываем результат');
+  	let result=fn(n);
+  	cache[n]= result;
+  	return result;
+  }
+ }
+}
+
+let memzCalc= memz(funcColculat);
+
+
+
+function conclusion(){
+	n=prompt('Введите переменную n=')
+	console.log('Результат равен:',memzCalc(n));
+
+	
+}
+
+
+ </script>
+  </body>
+</html>
